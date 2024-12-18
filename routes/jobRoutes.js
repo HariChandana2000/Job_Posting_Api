@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const router = express.Router();
 
-const jobsFilePath = "jobs.json";
+const jobsFilePath = "data/jobs.json";
 
 // Helper function to read jobs from the file
 const readJobsFromFile = () => {
