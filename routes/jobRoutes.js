@@ -3,11 +3,14 @@ const fs = require("fs");
 const path = require("path");
 const router = express.Router();
 
-const jobsFilePath = path.join(__dirname, '../data/jobs.json');
+const jobsFilePath = path.join(__dirname, "../data/jobs.json");
 
 // Helper function to read jobs from the file
 const readJobsFromFile = () => {
   try {
+    if (!fs.existsSync(jobsFilePath)) {
+      fs.writeFileSync(jobsFilePath, "[]"); // Create file with empty array if it doesn't exist
+    }
     const data = fs.readFileSync(jobsFilePath, "utf8");
     return JSON.parse(data);
   } catch (err) {
