@@ -7,6 +7,7 @@ const jobsFilePath = path.join(__dirname, "../data/jobs.json");
 
 // Helper function to read jobs from the file
 const readJobsFromFile = () => {
+  console.log(jobsFilePath);
   try {
     if (!fs.existsSync(jobsFilePath)) {
       fs.writeFileSync(jobsFilePath, "[]"); // Create file with empty array if it doesn't exist
